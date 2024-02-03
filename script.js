@@ -7,13 +7,15 @@ const noButton = document.querySelector(".btn--no");
 const catImg = document.querySelector(".cat-img");
 
 const MAX_IMAGES = 5;
+const LESSGOOO_MESSAGE = "LESSGOOO!";
 
 let play = true;
 let noCount = 0;
 
 yesButton.addEventListener("click", handleYesClick);
+noButton.addEventListener("click", handleNoButtonClick);
 
-noButton.addEventListener("click", function () {
+function handleNoButtonClick() {
   if (play) {
     noCount++;
     const imageIndex = Math.min(noCount, MAX_IMAGES);
@@ -24,20 +26,18 @@ noButton.addEventListener("click", function () {
       play = false;
     }
   }
-});
+}
 
 function handleYesClick() {
-  titleElement.innerHTML = "Yayyy!! :3";
+  titleElement.innerHTML = LESSGOOO_MESSAGE;
   buttonsContainer.classList.add("hidden");
-  catImg.src = 'me.jpeg'
-
+  catImg.src = 'me.jpeg';
 }
 
 function resizeYesButton() {
   const computedStyle = window.getComputedStyle(yesButton);
   const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
   const newFontSize = fontSize * 1.6;
-
   yesButton.style.fontSize = `${newFontSize}px`;
 }
 
